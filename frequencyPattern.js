@@ -45,4 +45,24 @@ function squared(arr1, arr2) {
   return true;
 }
 
-squared([2, 3, 4], [4, 9, 16]);
+// squared([2, 3, 4], [4, 9, 16]);
+
+// similarity check
+
+function checkSimilarity(first, second) {
+  let firstStorage = {};
+  let secondStorage = {};
+
+  for (let fruit of first) {
+    firstStorage[fruit] = (first[fruit] || 0) + 1;
+  }
+  console.log(firstStorage);
+  for (items of second) {
+    if (!(items in firstStorage)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+checkSimilarity(["orange", "cherry"], ["orange", "cherry"]);
