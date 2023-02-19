@@ -1,6 +1,28 @@
-function anagrams(x, y) {
-  let first = x.replace(/[^a-z0-9]/gi, "");
-  let second = y.replace(/[^a-z0-9]/gi, "");
+function anagram(first, second) {
+  let obj1 = {};
+  let obj2 = {};
 
-  return first.split("").sort().join("") === second.split("").sort().join("");
+  let str1;
+  let str2;
+  first.map((values) => (str1 = values));
+  second.map((values) => (str2 = values));
+  let splitted1 = str1.split("");
+  let splitted2 = str2.split("");
+  for (let items of splitted1) {
+    obj1[items] = (obj1[items] || 0) + 1;
+  }
+  for (let items of splitted2) {
+    obj2[items] = (obj2[items] || 0) + 1;
+  }
+  for (let key in obj1) {
+    if (!(key in obj2)) {
+      return false;
+    }
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+  return true;
 }
+
+anagram(["first"], ["another"]);
