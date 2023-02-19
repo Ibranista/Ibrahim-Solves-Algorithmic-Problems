@@ -26,3 +26,13 @@ function anagram(first, second) {
 }
 
 anagram(["first"], ["another"]);
+
+// another way
+
+function anagramChecker(arr1, arr2) {
+  arr1.split("").sort().join("") === arr2.split("").sort().join("")
+    ? console.log(true)
+    : console.log(false);
+}
+
+console.log(anagramChecker("cda", "adc"));
