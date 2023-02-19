@@ -36,3 +36,27 @@ function anagramChecker(arr1, arr2) {
 }
 
 console.log(anagramChecker("cda", "adc"));
+
+// using lookup object
+
+function anagramChecker2(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  let lookUp = {};
+
+  for (let letter of arr1) {
+    lookUp[letter] = (lookUp[letter] || 0) + 1;
+  }
+
+  for (let letter of arr2) {
+    if (!lookUp[letter]) {
+      return false;
+    }
+    lookUp[letter] -= 1;
+  }
+  return true;
+}
+
+console.log("lookup: ", anagramChecker2("c", "bc"));
