@@ -14,4 +14,26 @@ function sumZero(nums) {
   return false;
 }
 
-console.log(sumZero([2, 3, 4, -2]));
+// console.log(sumZero([2, 3, 4, -2]));
+
+// O(n) solution with out nested loop
+
+function sumZeroRefactored(nums) {
+  nums = nums.sort((a, b) => a - b);
+  console.log("sorted: ", nums);
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    let sum = nums[left] + nums[right];
+    if (sum === 0) {
+      return "found";
+    } else if (sum > 0) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+  return "nothing found";
+}
+
+console.log(sumZeroRefactored([3, 4, 5, 6, -2, 3, -4]));
