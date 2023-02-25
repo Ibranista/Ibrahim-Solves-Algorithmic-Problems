@@ -1,9 +1,9 @@
-function anagram(first, second) {
-  let obj1 = {};
-  let obj2 = {};
+function anagram(first: string[], second: string[]) {
+  let obj1: { [key: string]: number } = {};
+  let obj2: { [key: string]: number } = {};
 
-  let str1;
-  let str2;
+  let str1: any;
+  let str2: any;
   first.map((values) => (str1 = values));
   second.map((values) => (str2 = values));
   let splitted1 = str1.split("");
@@ -29,7 +29,7 @@ anagram(["first"], ["another"]);
 
 // another way
 
-function anagramChecker(arr1, arr2) {
+function anagramChecker(arr1: string, arr2: string) {
   arr1.split("").sort().join("") === arr2.split("").sort().join("")
     ? console.log(true)
     : console.log(false);
@@ -39,12 +39,12 @@ console.log(anagramChecker("cda", "adc"));
 
 // using lookup object
 
-function anagramChecker2(arr1, arr2) {
+function anagramChecker2(arr1: string, arr2: string) {
   if (arr1.length !== arr2.length) {
     return false;
   }
 
-  let lookUp = {};
+  let lookUp: { [key: string]: number } = {};
 
   for (let letter of arr1) {
     lookUp[letter] = (lookUp[letter] || 0) + 1;
