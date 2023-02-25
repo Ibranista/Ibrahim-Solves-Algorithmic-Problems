@@ -58,3 +58,21 @@ function countUniqueValues(num: number[]) {
 }
 
 countUniqueValues([2, 3, 3, 5, 5, 5]);
+
+// using two pointers
+
+function countUsingPointers(num: number[]) {
+  let first: number = 0;
+  let second: number = first + 1;
+
+  while (second < num.length) {
+    if (num[first] !== num[second]) {
+      num[first + 1] = num[second];
+      first += 1;
+    }
+    second += 1;
+  }
+  num.length = first + 1;
+}
+
+countUsingPointers([2, 2, 3]);
