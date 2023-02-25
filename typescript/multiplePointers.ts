@@ -51,10 +51,8 @@ function countUniqueValues(num: number[]) {
   for (let uniques in uniqueStorage) {
     values.push(uniques);
   }
-  console.log(
-    values.join(","),
-    `so there are ${values.length} number of unique elements.`
-  );
+
+  return values;
 }
 
 countUniqueValues([2, 3, 3, 5, 5, 5]);
@@ -73,6 +71,7 @@ function countUsingPointers(num: number[]) {
     second += 1;
   }
   num.length = first + 1;
+  return num;
 }
 
 countUsingPointers([2, 2, 3]);
