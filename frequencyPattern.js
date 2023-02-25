@@ -51,7 +51,6 @@ function squared(arr1, arr2) {
 
 function checkSimilarity(first, second) {
   let firstStorage = {};
-  let secondStorage = {};
 
   for (let fruit of first) {
     firstStorage[fruit] = (first[fruit] || 0) + 1;
