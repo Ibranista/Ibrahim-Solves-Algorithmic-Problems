@@ -19,11 +19,31 @@ function maxSubarraySum(arr: number[], sum: number) {
       tempStorage += arr[i + j];
       //   [0+0],[0+1],[0+2] =>0,4,5
     }
-    if (max < tempStorage) {
-      max = tempStorage;
-    }
+    max = Math.max(tempStorage, max);
   }
   return max;
 }
 
 maxSubarraySum([3, 4, 5, 5, 5], 3);
+
+// solution of O(n)
+
+function refactoredSum(arr: number[], num: number) {
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < num) {
+    return null;
+  }
+  for (let i = 0; i < num; i++) {
+    console.log(i);
+    maxSum += arr[i];
+    console.log(maxSum);
+  }
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+}
+
+refactoredSum([3, 4, 5, 5, 5], 3);
