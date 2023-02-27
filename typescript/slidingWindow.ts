@@ -9,11 +9,15 @@ function maxSubarraySum(arr: number[], sum: number) {
   }
   let max: number = -Infinity;
   for (let i = 0; i < arr.length - sum + 1; i++) {
+    //  0 < 3
+    //  1 < 3
+    //  2 < 3
+    console.log("looped");
     // sum storage
     let tempStorage: number = 0;
     for (let j = 0; j < sum; j++) {
       tempStorage += arr[i + j];
-      //   [0+0],[0+1],[0+2]
+      //   [0+0],[0+1],[0+2] =>0,4,5
     }
     if (max < tempStorage) {
       max = tempStorage;
@@ -22,4 +26,4 @@ function maxSubarraySum(arr: number[], sum: number) {
   return max;
 }
 
-maxSubarraySum([3, 4, 5, 5], 3);
+maxSubarraySum([3, 4, 5, 5, 5], 3);
